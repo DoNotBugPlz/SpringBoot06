@@ -1,6 +1,8 @@
 package com.atguigu.springboot06;
 
 
+import com.atguigu.springboot06.elastic.bean.Book;
+import com.atguigu.springboot06.repository.BookRepository;
 import com.atguigu.springboot06.user.beans.User;
 import com.atguigu.springboot06.user.mapper.UserDao;
 import com.atguigu.springboot06.user.service.UserService;
@@ -26,6 +28,8 @@ import java.util.Map;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class SpringBoot06ApplicationTests {
+//    @Autowired
+//    JestClient jestClient;
 
 
     @Autowired
@@ -33,6 +37,9 @@ public class SpringBoot06ApplicationTests {
 
     @Autowired
     UserDao userDao;
+
+    @Autowired
+    BookRepository bookRepository;
 
     @Autowired
     UserService userService;
@@ -112,6 +119,43 @@ public class SpringBoot06ApplicationTests {
         System.out.println(o.getClass());
         System.out.println(o);
     }
+
+    @Test
+    public void testElasticSearch(){
+//        Article article = new Article();
+//        article.setId(1).setTitle("好消息").setAuthor("zhangsan").setContent("hello world");
+//
+//        Index index = new Index.Builder(article).index("atguigu").type("news").build();
+//        try {
+//            jestClient.execute(index);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        Book book = new Book();
+        book.setId(1).setBookName("西游记").setAuthor("吴承恩");
+        bookRepository.index(book);
+
+    }
+
+    @Test
+    public void testElasticSearch02(){
+//        String json = "{\n" +
+//                "    \"query\" : {\n" +
+//                "        \"match\" : {\n" +
+//                "            \"content\" : \"hello\"\n" +
+//                "        }\n" +
+//                "    }\n" +
+//                "}\n";
+//      Search search = new Search.Builder(json).addIndex("atguigu").addType("news").build();
+//        try {
+//            SearchResult searchResult = jestClient.execute(search);
+//            System.out.println(searchResult.getJsonString());
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+
 
 
 }

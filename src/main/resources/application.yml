@@ -6,7 +6,14 @@ spring:
 #  mybatis-plus:
 #    configuration:
 #      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  elasticsearch:
+    jest:
+      uris: http://10.211.55.6:9200/
 
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: 10.211.55.6:9301
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
