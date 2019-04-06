@@ -3,6 +3,8 @@ package com.atguigu.springboot06.repository;
 import com.atguigu.springboot06.elastic.bean.Book;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
+import java.util.List;
+
 /**
  * @Description:
  * @Author:Dn
@@ -10,4 +12,6 @@ import org.springframework.data.elasticsearch.repository.ElasticsearchRepository
  * @Modifid By:
  */
 public interface BookRepository extends ElasticsearchRepository<Book,Integer> {
+
+    public List<Book> findBookByBookNameLike(String bookName);
 }

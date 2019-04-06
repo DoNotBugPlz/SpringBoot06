@@ -23,6 +23,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RunWith(SpringRunner.class)
@@ -134,6 +135,9 @@ public class SpringBoot06ApplicationTests {
         Book book = new Book();
         book.setId(1).setBookName("西游记").setAuthor("吴承恩");
         bookRepository.index(book);
+        List<Book> books = bookRepository.findBookByBookNameLike("游记");
+        System.out.println(books);
+
 
     }
 
