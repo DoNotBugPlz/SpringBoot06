@@ -15,9 +15,8 @@ spring:
       cluster-name: elasticsearch
       cluster-nodes: 10.211.55.6:9301
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://10.211.55.6:3306/mybatis_plus_test
+    url: jdbc:mysql://10.211.55.6:3306/mybatis_plus_test?useSSL=false
     username: root
     password: password
     initialSize: 5
@@ -53,6 +52,7 @@ spring:
     connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
     # 合并多个DruidDataSource的监控数据
     useGlobalDataSourceStat: true
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 
   redis:
